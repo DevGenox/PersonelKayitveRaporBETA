@@ -1,0 +1,67 @@
+﻿<Window x:Class="PersonelKayitveRapor.Elemanekle"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PersonelKayitveRapor"
+        xmlns:wf="clr-namespace:System.Windows.Forms;assembly=System.Windows.Forms"
+        mc:Ignorable="d"
+        Icon="ImageResources\logo.ico"
+        Title="Personel Kayıt" Height="675.165" Width="557.328" Background="#FFCCE4AE" ResizeMode="NoResize">
+    <Grid>
+
+        <Button x:Name="Temizle" Style="{StaticResource Resimlibuton}" Content="" ToolTip="Yenile" HorizontalAlignment="Left" VerticalAlignment="Top" Width="51" Height="42" FontWeight="Bold" FontSize="16" Margin="10,10,0,0" RenderTransformOrigin="0.455,0.523" Click="Temizle_Click">
+            <Button.Background>
+                <ImageBrush ImageSource="ImageResources/Reflesh.png"/>
+            </Button.Background>
+        </Button>
+        <Button x:Name="kaydet" Style="{StaticResource Resimlibuton}" Content="" ToolTip="Elemanı Ekle" HorizontalAlignment="Left" Height="46" Margin="438,590,0,0" VerticalAlignment="Top" Width="79" Click="Kaydet_Click" FontSize="20" FontWeight="Bold" RenderTransformOrigin="-0.154,0.5">
+            <Button.Background>
+                <ImageBrush ImageSource="ImageResources/add.png" Stretch="Uniform"/>
+            </Button.Background>
+        </Button>
+        <TextBox x:Name="txTC" PreviewKeyDown="OnlyNumbers" HorizontalAlignment="Left" Height="22" Margin="139,144,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="378" MaxLength="11"/>
+        <TextBox x:Name="txAdi" HorizontalAlignment="Left" Height="24" Margin="139,204,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="378"/>
+        <TextBox x:Name="txSoy" HorizontalAlignment="Left" Height="26" Margin="139,264,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="378"/>
+        <ComboBox x:Name="cboxCinsiyet" HorizontalAlignment="Left" Margin="139,308,0,0" VerticalAlignment="Top" Width="120">
+            <ListBoxItem Content="Erkek"/>
+            <ListBoxItem Content="Kadın"/>
+        </ComboBox>
+        <ComboBox x:Name="cboxGorev" HorizontalAlignment="Left" Margin="139,532,0,0" VerticalAlignment="Top" Width="120">
+            <ListBoxItem Content="CEO"/>
+            <ListBoxItem Content="Müdür"/>
+            <ListBoxItem Content="Müdür Yardımcısı"/>
+            <ListBoxItem Content="Satış Müdürü"/>
+            <ListBoxItem Content="Eleman"/>
+        </ComboBox>
+        <WindowsFormsHost Margin="139,352,0,0" Height="24" Width="378" HorizontalAlignment="Left" VerticalAlignment="Top">
+            <wf:MaskedTextBox x:Name="txTel" Mask="(000) 000 00 00" Height="24" Margin="140,240,0,0" Width="378" />
+        </WindowsFormsHost>
+        <TextBox x:Name="txAdres" HorizontalAlignment="Left" Height="22" Margin="139,412,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="378"/>
+        <TextBox x:Name="txMaas" PreviewKeyDown="OnlyNumbers" HorizontalAlignment="Left" Height="23" Margin="139,472,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="378"/>
+        <Label x:Name="vatandasliknum" Content="TC Kimlik No         :" HorizontalAlignment="Left" Margin="9,141,0,0" VerticalAlignment="Top" RenderTransformOrigin="-2.481,2.269" Width="123" FontWeight="Bold"/>
+        <Label x:Name="adi" Content="Adı                          :" HorizontalAlignment="Left" Height="24" Margin="9,201,0,0" VerticalAlignment="Top" Width="121" FontWeight="Bold"/>
+        <Label x:Name="soyadi" Content="Soyadı                    :" HorizontalAlignment="Left" Margin="9,261,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+        <Label x:Name="cinsiyet" Content="Cinsiyeti                 :" HorizontalAlignment="Left" Margin="9,304,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+        <Label x:Name="telefon" Content="Telefon                   :" HorizontalAlignment="Left" Margin="9,349,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+        <Label x:Name="adres" Content="Adresi                     :" HorizontalAlignment="Left" Margin="9,409,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+        <Label x:Name="maas" Content="Maaşı                      :  " HorizontalAlignment="Left" Margin="9,469,0,0" VerticalAlignment="Top" FontWeight="Bold" Width="123"/>
+        <Label x:Name="gorevi"  Content="Görevi                     :  " HorizontalAlignment="Left" Margin="9,529,0,0" VerticalAlignment="Top" FontWeight="Bold" Width="123"/>
+        <Button x:Name="listeyedon" Content="" Style="{StaticResource Resimlibuton}" HorizontalAlignment="Left" ToolTip="Eleman Listesi" Margin="66,10,0,0" VerticalAlignment="Top" Width="87" Height="42" FontWeight="Bold" Click="Listeyedon_Click">
+            <Button.Background>
+                <ImageBrush ImageSource="ImageResources/list.png" Stretch="Uniform"/>
+            </Button.Background>
+        </Button>
+        <Button Style="{StaticResource simplebutton}" x:Name="button" Content="Resim Ekle..." HorizontalAlignment="Left" Margin="33,590,0,0" VerticalAlignment="Top" Width="97" Click="button_Click"/>
+        <Canvas Height="125" Width="124" Margin="393,10,34,511" Cursor="Hand" MouseDown="profilresim_MouseDown">
+            <Image x:Name="profilresim" Height="105" Width="104"  Canvas.ZIndex="1" Canvas.Left="10" Canvas.Top="10"  />
+            <Rectangle Stroke="Black" StrokeThickness="5"
+           Fill="Orange"  Height="125" Width="124"/>
+        </Canvas>
+        
+
+
+
+    </Grid>
+
+</Window>
