@@ -21,18 +21,13 @@
             <ListBoxItem Content="Erkek"/>
             <ListBoxItem Content="Kadın"/>
         </ComboBox>
-        <ComboBox x:Name="cboxGorev" HorizontalAlignment="Left" Margin="150,539,0,0" VerticalAlignment="Top" Width="120">
-            <ListBoxItem Content="CEO"/>
-            <ListBoxItem Content="Müdür"/>
-            <ListBoxItem Content="Müdür Yardımcısı"/>
-            <ListBoxItem Content="Satış Müdürü"/>
-            <ListBoxItem Content="Eleman"/>
-        </ComboBox>
         <WindowsFormsHost Margin="150,359,0,0" Height="24" Width="378" HorizontalAlignment="Left" VerticalAlignment="Top">
             <wf:MaskedTextBox x:Name="txTel" Mask="(000) 000 00 00" Height="24" Margin="140,240,0,0" Width="378" />
         </WindowsFormsHost>
         <TextBox x:Name="txAdres" HorizontalAlignment="Left" Height="22" Margin="150,419,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="378"/>
         <TextBox x:Name="txMaas" PreviewKeyDown="OnlyNumbers" HorizontalAlignment="Left" Height="23" Margin="150,479,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="378"/>
+        <ComboBox x:Name="cboxGorev" HorizontalAlignment="Left" Margin="110,539,0,0" VerticalAlignment="Top" Width="120"/>
+        <ComboBox x:Name="cboxUstKademe" HorizontalAlignment="Left" Margin="408,539,0,0" VerticalAlignment="Top" Width="120"/>
         <Label x:Name="vatandasliknum" Content="TC Kimlik No          :" HorizontalAlignment="Left" Margin="20,148,0,0" VerticalAlignment="Top" RenderTransformOrigin="-2.481,2.269" Width="123" FontWeight="Bold"/>
         <Label x:Name="adi" Content="Adı                          :" HorizontalAlignment="Left" Height="24" Margin="20,208,0,0" VerticalAlignment="Top" Width="121" FontWeight="Bold"/>
         <Label x:Name="soyadi" Content="Soyadı                    :" HorizontalAlignment="Left" Margin="20,268,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
@@ -40,7 +35,8 @@
         <Label x:Name="telefon" Content="Telefon                   :" HorizontalAlignment="Left" Margin="20,356,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
         <Label x:Name="adres" Content="Adresi                     :" HorizontalAlignment="Left" Margin="20,416,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
         <Label x:Name="maas" Content="Maaşı                      :  " HorizontalAlignment="Left" Margin="20,476,0,0" VerticalAlignment="Top" FontWeight="Bold" Width="123"/>
-        <Label x:Name="gorevi"  Content="Görevi                     :  " HorizontalAlignment="Left" Margin="20,536,0,0" VerticalAlignment="Top" FontWeight="Bold" Width="123"/>
+        <Label x:Name="gorevi"  Content="Görevi           :  " HorizontalAlignment="Left" Margin="20,536,0,0" VerticalAlignment="Top" FontWeight="Bold" Width="88"/>
+        <Label x:Name="alti"  Content="(İsteğe Bağlı) Üst Kademesi :  " HorizontalAlignment="Left" Margin="235,536,0,0" VerticalAlignment="Top" FontWeight="Bold" Width="170"/>
         <Button x:Name="resimekle" Style="{StaticResource simplebutton}" Content="Resim Ekle..." HorizontalAlignment="Left" Margin="20,585,0,0" VerticalAlignment="Top" Width="105" Height="31" Click="resimekle_Click"/>
         <Canvas Height="125" Width="124" Margin="10,10,417,506">
             <Image x:Name="profilresim" Height="105" Width="104" Canvas.ZIndex="1" Canvas.Left="10" Canvas.Top="10" MouseDown="profilresim_MouseDown"  Cursor="Hand" />

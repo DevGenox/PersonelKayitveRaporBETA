@@ -11,6 +11,7 @@ using MongoDB.Driver.Builders;
 using System.Drawing;
 using System.Drawing.Imaging;
 using System.Windows.Media.Imaging;
+using System.Windows.Controls;
 
 namespace PersonelKayitveRapor
 {
@@ -169,6 +170,63 @@ namespace PersonelKayitveRapor
             Elemanduzenlemepenceresi.txTel.Text = eleman.Tel;
             Elemanduzenlemepenceresi.txAdres.Text = eleman.Adres;
             Elemanduzenlemepenceresi.txMaas.Text =Convert.ToString(eleman.Maas);
+            Elemanduzenlemepenceresi.cboxGorev.Text = eleman.pozisyon;
+            if (Elemanduzenlemepenceresi.cboxGorev.Text == "Eleman")
+            {
+                var kullanicilar = msc.Insancol.AsQueryable<InsanClass>();
+                foreach (var kul in kullanicilar)
+                {
+                    if (kul.ParentId == 2)
+                    {
+                        ComboBoxItem personel = new ComboBoxItem();
+                        personel.Content = kul.Adi + " " + kul.Soyadi;
+                        Elemanduzenlemepenceresi.cboxUstKademe.Items.Add(personel);
+                    }
+
+                }
+            }
+            if (Elemanduzenlemepenceresi.cboxGorev.Text == "Satış Müdürü")
+            {
+                var kullanicilar = msc.Insancol.AsQueryable<InsanClass>();
+                foreach (var kul in kullanicilar)
+                {
+                    if (kul.ParentId == 1)
+                    {
+                        ComboBoxItem personel = new ComboBoxItem();
+                        personel.Content = kul.Adi + " " + kul.Soyadi;
+                        Elemanduzenlemepenceresi.cboxUstKademe.Items.Add(personel);
+                    }
+
+                }
+            }
+            if (Elemanduzenlemepenceresi.cboxGorev.Text == "Müdür")
+            {
+                var kullanicilar = msc.Insancol.AsQueryable<InsanClass>();
+                foreach (var kul in kullanicilar)
+                {
+                    if (kul.ParentId == 1)
+                    {
+                        ComboBoxItem personel = new ComboBoxItem();
+                        personel.Content = kul.Adi + " " + kul.Soyadi;
+                        Elemanduzenlemepenceresi.cboxUstKademe.Items.Add(personel);
+                    }
+
+                }
+            }
+            if (Elemanduzenlemepenceresi.cboxGorev.Text == "Müdür Yardımcısı")
+            {
+                var kullanicilar = msc.Insancol.AsQueryable<InsanClass>();
+                foreach (var kul in kullanicilar)
+                {
+                    if (kul.ParentId == 1)
+                    {
+                        ComboBoxItem personel = new ComboBoxItem();
+                        personel.Content = kul.Adi + " " + kul.Soyadi;
+                        Elemanduzenlemepenceresi.cboxUstKademe.Items.Add(personel);
+                    }
+
+                }
+            }
             Elemanduzenlemepenceresi.Closed += ChildWindowClosed;
            
             

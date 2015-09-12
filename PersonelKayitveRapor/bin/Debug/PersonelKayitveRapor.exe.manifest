@@ -43,14 +43,26 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="MaterialDesignThemes.Wpf.dll" size="3104256">
-      <assemblyIdentity name="MaterialDesignThemes.Wpf" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="MaterialDesignColors.dll" size="49664">
+      <assemblyIdentity name="MaterialDesignColors" version="1.0.0.41254" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>2c3mpsOhkN5w/jlVMS6njvgwM/OKyaItYzlXNriPy1Q=</dsig:DigestValue>
+        <dsig:DigestValue>U4Q9/GAwegFnWhxEelmtRNUhmgNugRsuhToTQBSmZtA=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="MaterialDesignThemes.Wpf.dll" size="3192832">
+      <assemblyIdentity name="MaterialDesignThemes.Wpf" version="1.0.1.0" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+        <dsig:DigestValue>B9DggUnA2EoYF98XQ59AiOnP74KYWOBDKL1mCLp2CWo=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -103,14 +115,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="PersonelKayitveRapor.exe" size="338880">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="PersonelKayitveRapor.exe" size="343488">
       <assemblyIdentity name="PersonelKayitveRapor" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>Bek1aPWHvYTgYtu+IaprFFFmVmIZMHshCGAqfWCd2OQ=</dsig:DigestValue>
+        <dsig:DigestValue>lXao4iYGDpD/P5VGt32spW6/NdzD+2qENNilYOhW+3o=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

@@ -7,14 +7,14 @@
     <framework targetVersion="4.5.2" profile="Full" supportedRuntime="4.0.30319" />
   </compatibleFrameworks>
   <dependency>
-    <dependentAssembly dependencyType="install" codebase="PersonelKayitveRapor.exe.manifest" size="18645">
+    <dependentAssembly dependencyType="install" codebase="PersonelKayitveRapor.exe.manifest" size="19307">
       <assemblyIdentity name="PersonelKayitveRapor.exe" version="1.0.0.9" publicKeyToken="0000000000000000" language="neutral" processorArchitecture="msil" type="win32" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>kw9nHsPLXhfjjI0H+P8N3p9inmkhOyi2FwK2tJ4/w+k=</dsig:DigestValue>
+        <dsig:DigestValue>MSFfIF+102h5/h9aZdKsvQ3y+3lJpwCUy4mcL2iEMck=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

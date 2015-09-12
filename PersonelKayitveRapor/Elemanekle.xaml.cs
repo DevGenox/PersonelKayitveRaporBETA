@@ -18,7 +18,6 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using MongoDB.Driver;
 using MongoDB.Driver.Builders;
-using MongoDB.Driver.GridFS;
 using MongoDB.Driver.Linq;
 using MongoDB.Bson.Serialization.Attributes;
 using System.Text.RegularExpressions;
@@ -32,7 +31,6 @@ namespace PersonelKayitveRapor
     /// </summary>
     public partial class Elemanekle : Window
     {
-
         public Elemanekle()
         {
 
@@ -78,8 +76,12 @@ namespace PersonelKayitveRapor
                 MessageBoxResult result = MessageBox.Show("Server Başlatılamadı...");
                 // File.Delete(".\\data\\db\\mongod.lock");
             }
-
             InitializeComponent();
+            cboxGorev.Items.Add("CEO");
+            cboxGorev.Items.Add("Müdür");
+            cboxGorev.Items.Add("Müdür Yardımcısı");
+            cboxGorev.Items.Add("Satış Müdürü");
+            cboxGorev.Items.Add("Eleman");
             //   this.LocationChanged += AnaPencere_LocationChanged;
             //   msc.Alinti.Remove(MongoDB.Driver.Builders.Query.EQ("_id", new ObjectId("5317d476ee06bc07349ca5d3")));
 
@@ -173,7 +175,7 @@ namespace PersonelKayitveRapor
             image.EndInit();
             return image;
         }
-      
+
         private void Temizle_Click(object sender, RoutedEventArgs e)
         {
             txAdi.Text = "";
@@ -195,9 +197,9 @@ namespace PersonelKayitveRapor
         {
             Microsoft.Win32.OpenFileDialog dlg = new Microsoft.Win32.OpenFileDialog();
             dlg.DefaultExt = ".png";
-            dlg.Filter = "PNG Files (*.png)|*.png|JPEG Files (*.jpeg)|*.jpeg|JPG Files (*.jpg)|*.jpg|GIF Files (*.gif)|*.gif";        
+            dlg.Filter = "PNG Files (*.png)|*.png|JPEG Files (*.jpeg)|*.jpeg|JPG Files (*.jpg)|*.jpg|GIF Files (*.gif)|*.gif";
             bool? result = dlg.ShowDialog();
-              if (result == true)
+            if (result == true)
             {
                 try
                 {
@@ -213,7 +215,7 @@ namespace PersonelKayitveRapor
 
             }
         }
-
+        int listesira = 0;
         private void Kaydet_Click(object sender, RoutedEventArgs e)
         {
             InsanClass ins = new InsanClass();
@@ -240,18 +242,74 @@ namespace PersonelKayitveRapor
                     {
                         case "Müdür":
                             ins.ParentId = 1;
+                            if (cboxUstKademe != null)
+                            {
+                                var kullanicilar = msc.Insancol.AsQueryable<InsanClass>();
+                                foreach (var kul in kullanicilar)
+                                {
+                                    listesira = listesira + 1;
+                                    kul.treeId = listesira;
+                                    if (kul.Adi + " " + kul.Soyadi == cboxUstKademe.Text)
+                                    {
+                                        ins.ParentId = kul.treeId;
+                                        break;
+                                    }
+                                }
+                            }
                             break;
                         case "CEO":
                             ins.ParentId = 1;
                             break;
                         case "Müdür Yardımcısı":
-                            ins.ParentId = 2;
+                            ins.ParentId = 1;
+                            if (cboxUstKademe != null)
+                            {
+                                var kullanicilar = msc.Insancol.AsQueryable<InsanClass>();
+                                foreach (var kul in kullanicilar)
+                                {
+                                    listesira = listesira + 1;
+                                    kul.treeId = listesira;
+                                    if (kul.Adi + " " + kul.Soyadi == cboxUstKademe.Text)
+                                    {
+                                        ins.ParentId = kul.treeId;
+                                        break;
+                                    }
+                                }
+                            }
                             break;
                         case "Satış Müdürü":
                             ins.ParentId = 2;
-                            break;
+                            if (cboxUstKademe != null)
+                            {
+                                var kullanicilar = msc.Insancol.AsQueryable<InsanClass>();
+                                foreach (var kul in kullanicilar)
+                                {
+                                    listesira = listesira + 1;
+                                    kul.treeId = listesira;
+                                    if (kul.Adi + " " + kul.Soyadi == cboxUstKademe.Text)
+                                    {
+                                        ins.ParentId = kul.treeId;
+                                        break;
+                                    }
+                                }
+                            }
+                            break;                            
                         case "Eleman":
                             ins.ParentId = 3;
+                            if (cboxUstKademe != null)
+                            {
+                                var kullanicilar = msc.Insancol.AsQueryable<InsanClass>();
+                                foreach (var kul in kullanicilar)
+                                {
+                                    listesira = listesira + 1;
+                                    kul.treeId = listesira;
+                                    if (kul.Adi + " " + kul.Soyadi == cboxUstKademe.Text)
+                                    {
+                                        ins.ParentId = kul.treeId;
+                                        break;
+                                    }
+                                }
+                            }                            
                             break;
                     }
 
@@ -272,6 +330,7 @@ namespace PersonelKayitveRapor
                 {
                     MessageBox.Show("TC Numarası 11 haneli olmalıdır!");
                 }
+                this.Close();
             }
             catch (Exception)
             {
@@ -279,7 +338,7 @@ namespace PersonelKayitveRapor
 
             }
 
-            this.Close();
+
         }
 
         private void Kayit_Loaded(object sender, RoutedEventArgs e)
@@ -289,6 +348,67 @@ namespace PersonelKayitveRapor
         private void profilresim_MouseDown(object sender, MouseButtonEventArgs e)
         {
             button_Click(null, null);
+        }
+
+        private void cboxGorev_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+             if (cboxGorev.SelectedItem.ToString() == "Eleman")
+                {
+                    var kullanicilar = msc.Insancol.AsQueryable<InsanClass>();
+                    foreach (var kul in kullanicilar)
+                      {
+                        if (kul.ParentId == 2)
+                        {
+                            ComboBoxItem personel = new ComboBoxItem();
+                            personel.Content = kul.Adi + " " + kul.Soyadi;
+                            cboxUstKademe.Items.Add(personel);
+                        }
+
+                 }
+                }
+            if (cboxGorev.SelectedItem.ToString() == "Satış Müdürü")
+            {
+                var kullanicilar = msc.Insancol.AsQueryable<InsanClass>();
+                foreach (var kul in kullanicilar)
+                {
+                    if (kul.ParentId == 1)
+                    {
+                        ComboBoxItem personel = new ComboBoxItem();
+                        personel.Content = kul.Adi + " " + kul.Soyadi;
+                        cboxUstKademe.Items.Add(personel);
+                    }
+
+                }
+            }
+            if (cboxGorev.SelectedItem.ToString() == "Müdür")
+            {
+                var kullanicilar = msc.Insancol.AsQueryable<InsanClass>();
+                foreach (var kul in kullanicilar)
+                {
+                    if (kul.ParentId == 1)
+                    {
+                        ComboBoxItem personel = new ComboBoxItem();
+                        personel.Content = kul.Adi + " " + kul.Soyadi;
+                        cboxUstKademe.Items.Add(personel);
+                    }
+
+                }
+            }
+            if (cboxGorev.SelectedItem.ToString() == "Müdür Yardımcısı")
+            {
+                var kullanicilar = msc.Insancol.AsQueryable<InsanClass>();
+                foreach (var kul in kullanicilar)
+                {
+                    if (kul.ParentId == 1)
+                    {
+                        ComboBoxItem personel = new ComboBoxItem();
+                        personel.Content = kul.Adi + " " + kul.Soyadi;
+                        cboxUstKademe.Items.Add(personel);
+                    }
+
+                }
+            }
+
         }
     }
 }

@@ -23,9 +23,8 @@ namespace PersonelKayitveRapor.Model
             int listesira = 0;
             foreach (var kul in kullanicilar)
              {
-
                 listesira = listesira + 1;
-                list.Add(listesira, new InsanClass { treeId = listesira, Adi = kul.Adi, Soyadi = kul.Soyadi, ParentId = kul.ParentId, Resim = kul.Resim });
+                list.Add(listesira, new InsanClass { treeId = listesira, Adi = kul.Adi, Soyadi = kul.Soyadi, ParentId = kul.ParentId, Resim = kul.Resim, pozisyon = kul.pozisyon });
                 
             }
         }

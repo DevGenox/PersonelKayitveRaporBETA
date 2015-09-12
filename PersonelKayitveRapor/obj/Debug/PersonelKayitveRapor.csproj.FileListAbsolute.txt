@@ -55,3 +55,4 @@ D:\Project\Visual Studio 2015\Projects\PersonelKayitveRapor\PersonelKayitveRapor
 D:\Project\Visual Studio 2015\Projects\PersonelKayitveRapor\PersonelKayitveRapor\obj\Debug\GeneratedInternalTypeHelper.g.cs
 D:\Project\Visual Studio 2015\Projects\PersonelKayitveRapor\PersonelKayitveRapor\obj\Debug\Agac.baml
 D:\Project\Visual Studio 2015\Projects\PersonelKayitveRapor\PersonelKayitveRapor\obj\Debug\View\WithTemplate.baml
+D:\Project\Visual Studio 2015\Projects\PersonelKayitVeRapor\PersonelKayitveRapor\bin\Debug\MaterialDesignColors.dll

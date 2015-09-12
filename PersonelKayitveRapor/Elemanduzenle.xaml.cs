@@ -96,6 +96,11 @@ namespace PersonelKayitveRapor
             }
 
             InitializeComponent();
+            cboxGorev.Items.Add("CEO");
+            cboxGorev.Items.Add("Müdür");
+            cboxGorev.Items.Add("Müdür Yardımcısı");
+            cboxGorev.Items.Add("Satış Müdürü");
+            cboxGorev.Items.Add("Eleman");
             //   this.LocationChanged += AnaPencere_LocationChanged;
             //   msc.Alinti.Remove(MongoDB.Driver.Builders.Query.EQ("_id", new ObjectId("5317d476ee06bc07349ca5d3")));
 
@@ -113,7 +118,7 @@ namespace PersonelKayitveRapor
             //}
             //var lang = System.Windows.Forms.InputLanguage.InstalledInputLanguages;
             //System.Windows.Forms.InputLanguage.CurrentInputLanguage = lang[1];
-          //  LoadDB();
+            //  LoadDB();
         }
 
       /*  private void LoadDB()
@@ -154,6 +159,7 @@ namespace PersonelKayitveRapor
             this.Close();
         }
         string browsefilename;
+        int listesira = 0;
         public InsanClass eleman { get; set; }
         private void kayitetme()
         {
@@ -175,6 +181,81 @@ namespace PersonelKayitveRapor
                     eleman.Adres = txAdres.Text;
                     eleman.TCNo = txTC.Text;
                     eleman.Maas = Convert.ToDouble(txMaas.Text);
+                    eleman.pozisyon = cboxGorev.Text;
+                    switch (cboxGorev.Text)
+                    {
+                        case "Müdür":
+                            eleman.ParentId = 1;
+                            if (cboxUstKademe != null)
+                            {
+                                var kullanicilar = msc.Insancol.AsQueryable<InsanClass>();
+                                foreach (var kul in kullanicilar)
+                                {
+                                    listesira = listesira + 1;
+                                    kul.treeId = listesira;
+                                    if (kul.Adi + " " + kul.Soyadi == cboxUstKademe.Text)
+                                    {
+                                        eleman.ParentId = kul.treeId;
+                                        break;
+                                    }
+                                }
+                            }
+                            break;
+                        case "CEO":
+                            eleman.ParentId = 1;
+                            break;
+                        case "Müdür Yardımcısı":
+                            eleman.ParentId = 1;
+                            if (cboxUstKademe != null)
+                            {
+                                var kullanicilar = msc.Insancol.AsQueryable<InsanClass>();
+                                foreach (var kul in kullanicilar)
+                                {
+                                    listesira = listesira + 1;
+                                    kul.treeId = listesira;
+                                    if (kul.Adi + " " + kul.Soyadi == cboxUstKademe.Text)
+                                    {
+                                        eleman.ParentId = kul.treeId;
+                                        break;
+                                    }
+                                }
+                            }
+                            break;
+                        case "Satış Müdürü":
+                            eleman.ParentId = 2;
+                            if (cboxUstKademe != null)
+                            {
+                                var kullanicilar = msc.Insancol.AsQueryable<InsanClass>();
+                                foreach (var kul in kullanicilar)
+                                {
+                                    listesira = listesira + 1;
+                                    kul.treeId = listesira;
+                                    if (kul.Adi + " " + kul.Soyadi == cboxUstKademe.Text)
+                                    {
+                                        eleman.ParentId = kul.treeId;
+                                        break;
+                                    }
+                                }
+                            }
+                            break;
+                        case "Eleman":
+                            eleman.ParentId = 3;
+                            if (cboxUstKademe != null)
+                            {
+                                var kullanicilar = msc.Insancol.AsQueryable<InsanClass>();
+                                foreach (var kul in kullanicilar)
+                                {
+                                    listesira = listesira + 1;
+                                    kul.treeId = listesira;
+                                    if (kul.Adi + " " + kul.Soyadi == cboxUstKademe.Text)
+                                    {
+                                        eleman.ParentId = kul.treeId;
+                                        break;
+                                    }
+                                }
+                            }                            
+                            break;
+                    }
                     msc.Insancol.Update(Query.EQ("_id", eleman._idkisi), Update.Replace(eleman), UpdateFlags.Upsert);
                     txAdi.Text = "";
                     txSoy.Text = "";
