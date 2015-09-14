@@ -5,17 +5,23 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PersonelKayitveRapor"
         xmlns:wf="clr-namespace:System.Windows.Forms;assembly=System.Windows.Forms"
+        Background="{DynamicResource MaterialDesignPaper}"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
         mc:Ignorable="d"
         Icon="ImageResources\logo.ico"
-        Title="Personel Kayıt" Height="675.165" Width="557.328" Background="#FFCCE4AE" ResizeMode="NoResize">
+        Title="Personel Kayıt" Height="675.165" Width="557.328" ResizeMode="NoResize">
     <Grid>
-
-        <Button x:Name="Temizle" Style="{StaticResource Resimlibuton}" Content="" ToolTip="Yenile" HorizontalAlignment="Left" VerticalAlignment="Top" Width="51" Height="42" FontWeight="Bold" FontSize="16" Margin="10,10,0,0" RenderTransformOrigin="0.455,0.523" Click="Temizle_Click">
+        <Button x:Name="listeyedon" Style="{DynamicResource Resimlibuton}" Content="" HorizontalAlignment="Left" ToolTip="Eleman Listesi" Margin="66,10,0,0" VerticalAlignment="Top" Width="87" Height="42" FontWeight="Bold" >
+            <Button.Background>
+                <ImageBrush ImageSource="ImageResources/list.png" Stretch="Uniform"/>
+            </Button.Background>
+        </Button>
+        <Button x:Name="Temizle" Style="{DynamicResource Resimlibuton}" Content="" ToolTip="Yenile" HorizontalAlignment="Left" VerticalAlignment="Top" Width="51" Height="42" FontWeight="Bold" FontSize="16" Margin="10,10,0,0" RenderTransformOrigin="0.455,0.523" Click="Temizle_Click">
             <Button.Background>
                 <ImageBrush ImageSource="ImageResources/Reflesh.png"/>
             </Button.Background>
         </Button>
-        <Button x:Name="kaydet" Style="{StaticResource Resimlibuton}" Content="" ToolTip="Elemanı Ekle" HorizontalAlignment="Left" Height="46" Margin="438,590,0,0" VerticalAlignment="Top" Width="79" Click="Kaydet_Click" FontSize="20" FontWeight="Bold" RenderTransformOrigin="-0.154,0.5">
+        <Button x:Name="kaydet" Style="{DynamicResource Resimlibuton}" Content="" ToolTip="Elemanı Ekle" HorizontalAlignment="Left" Height="46" Margin="438,590,0,0" VerticalAlignment="Top" Width="79" Click="Kaydet_Click" FontSize="20" FontWeight="Bold" RenderTransformOrigin="-0.154,0.5">
             <Button.Background>
                 <ImageBrush ImageSource="ImageResources/add.png" Stretch="Uniform"/>
             </Button.Background>
@@ -43,12 +49,7 @@
         <Label x:Name="maas" Content="Maaşı                      :  " HorizontalAlignment="Left" Margin="9,469,0,0" VerticalAlignment="Top" FontWeight="Bold" Width="123"/>
         <Label x:Name="gorevi"  Content="Görevi           :  " HorizontalAlignment="Left" Margin="9,529,0,0" VerticalAlignment="Top" FontWeight="Bold" Width="86"/>
         <Label x:Name="alti"  Content="(İsteğe Bağlı) Üst Kademesi :  " HorizontalAlignment="Left" Margin="225,529,0,0" VerticalAlignment="Top" FontWeight="Bold" Width="170"/>
-        <Button x:Name="listeyedon" Content="" Style="{StaticResource Resimlibuton}" HorizontalAlignment="Left" ToolTip="Eleman Listesi" Margin="66,10,0,0" VerticalAlignment="Top" Width="87" Height="42" FontWeight="Bold" >
-            <Button.Background>
-                <ImageBrush ImageSource="ImageResources/list.png" Stretch="Uniform"/>
-            </Button.Background>
-        </Button>
-        <Button Style="{StaticResource simplebutton}" x:Name="button" Content="Resim Ekle..." HorizontalAlignment="Left" Margin="33,590,0,0" VerticalAlignment="Top" Width="97" Click="button_Click"/>
+        <Button x:Name="button" Content="Resim Ekle..." HorizontalAlignment="Left" Margin="33,590,0,0" VerticalAlignment="Top" Width="97" Click="button_Click"/>
         <Canvas Height="125" Width="124" Margin="393,10,34,511" Cursor="Hand" MouseDown="profilresim_MouseDown">
             <Image x:Name="profilresim" Height="105" Width="104"  Canvas.ZIndex="1" Canvas.Left="10" Canvas.Top="10"  />
             <Rectangle Stroke="Black" StrokeThickness="5"

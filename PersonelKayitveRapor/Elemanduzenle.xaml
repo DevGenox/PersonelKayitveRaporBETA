@@ -6,10 +6,12 @@
         xmlns:local="clr-namespace:PersonelKayitveRapor"
         xmlns:wf="clr-namespace:System.Windows.Forms;assembly=System.Windows.Forms"
         mc:Ignorable="d"
+        Background="{DynamicResource MaterialDesignPaper}"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
         Icon="ImageResources\logo.ico"
-        Title="Eleman Bilgilerini Düzenle" Height="669.799" Width="557.328" Background="#FFCCE4AE" ResizeMode="NoResize">
+        Title="Eleman Bilgilerini Düzenle" Height="669.799" Width="557.328" ResizeMode="NoResize">
     <Grid>
-        <Button x:Name="kaydet" Style="{StaticResource Resimlibuton}" Content="" ToolTip="Elemanı Ekle" HorizontalAlignment="Left" Height="46" Margin="449,585,0,0" VerticalAlignment="Top" Width="79" Click="Kaydet_Click" FontSize="20" FontWeight="Bold" RenderTransformOrigin="-0.154,0.5">
+        <Button x:Name="kaydet" Content="" ToolTip="Elemanı Ekle" HorizontalAlignment="Left" Height="46" Margin="449,585,0,0" VerticalAlignment="Top" Width="79" Click="Kaydet_Click" FontSize="20" FontWeight="Bold" RenderTransformOrigin="-0.154,0.5">
             <Button.Background>
                 <ImageBrush ImageSource="ImageResources/edit.png" Stretch="Uniform"/>
             </Button.Background>
@@ -37,13 +39,13 @@
         <Label x:Name="maas" Content="Maaşı                      :  " HorizontalAlignment="Left" Margin="20,476,0,0" VerticalAlignment="Top" FontWeight="Bold" Width="123"/>
         <Label x:Name="gorevi"  Content="Görevi           :  " HorizontalAlignment="Left" Margin="20,536,0,0" VerticalAlignment="Top" FontWeight="Bold" Width="88"/>
         <Label x:Name="alti"  Content="(İsteğe Bağlı) Üst Kademesi :  " HorizontalAlignment="Left" Margin="235,536,0,0" VerticalAlignment="Top" FontWeight="Bold" Width="170"/>
-        <Button x:Name="resimekle" Style="{StaticResource simplebutton}" Content="Resim Ekle..." HorizontalAlignment="Left" Margin="20,585,0,0" VerticalAlignment="Top" Width="105" Height="31" Click="resimekle_Click"/>
+        <Button x:Name="resimekle" Content="Resim Ekle..." HorizontalAlignment="Left" Margin="20,585,0,0" VerticalAlignment="Top" Width="105" Height="31" Click="resimekle_Click"/>
         <Canvas Height="125" Width="124" Margin="10,10,417,506">
             <Image x:Name="profilresim" Height="105" Width="104" Canvas.ZIndex="1" Canvas.Left="10" Canvas.Top="10" MouseDown="profilresim_MouseDown"  Cursor="Hand" />
             <Rectangle Stroke="Black" StrokeThickness="5"
            Fill="Orange"  Height="125" Width="124"/>
         </Canvas>
-        <Button x:Name="iptal" Style="{StaticResource Resimlibuton}" Content="" HorizontalAlignment="Left" Margin="353,585,0,0" VerticalAlignment="Top" Width="79" Height="46" Click="iptal_Click_1">
+        <Button x:Name="iptal" Content="" HorizontalAlignment="Left" Margin="353,585,0,0" VerticalAlignment="Top" Width="79" Height="46" Click="iptal_Click_1">
             <Button.Background>
                 <ImageBrush ImageSource="ImageResources/cancel.png" Stretch="Uniform"/>
             </Button.Background>

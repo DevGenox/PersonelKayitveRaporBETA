@@ -4,37 +4,41 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PersonelKayitveRapor"
+        Background="{DynamicResource MaterialDesignPaper}"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        FontFamily="pack://application:,,,/MaterialDesignThemes.Wpf;component/Resources/Roboto/#Roboto"
         xmlns:PersonelKayitveRapor="clr-namespace:PersonelKayitveRapor" x:Class="PersonelKayitveRapor.Elemanlistesi"
+        xmlns:wpf="clr-namespace:MaterialDesignThemes.Wpf;assembly=MaterialDesignThemes.Wpf"
         mc:Ignorable="d" 
         WindowStartupLocation="CenterScreen" 
         Icon="ImageResources\logo.ico"
-        Title="Personel Kayıt ve Rapor" Height="403" Width="1329" Background="#FFCCE4AE" ResizeMode="NoResize">
+        Title="Personel Kayıt ve Rapor" Height="403" Width="1329" ResizeMode="NoResize">
     <Grid>
         <ScrollViewer  HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Disabled" Margin="0,60,10,38">
             <StackPanel Height="296">
-                <DataGrid x:Name="dataGrid" VerticalScrollBarVisibility="Disabled" HorizontalScrollBarVisibility="Disabled" HorizontalAlignment="Left" Margin="0,0,0,0" AutoGenerateColumns="False" VerticalAlignment="Top" Height="284" Width="1280" Background="#FFCCE4AE" FontSize="13.333" >
-            <DataGrid.Columns>
-                <DataGridTextColumn Header="TC NO" Binding="{Binding TCNo }" Width="200"/>
-                <DataGridTextColumn Header="AD" Binding="{Binding Adi }" Width="192"/>
-                <DataGridTextColumn Header="SOYAD" Binding="{Binding Soyadi }" Width="200"/>
-                <DataGridTextColumn Header="ADRES" Binding="{Binding Adres }" Width="270" />
-                <DataGridTextColumn Header="TELEFON" Binding="{Binding Tel }" Width="200"/>
-                <DataGridTextColumn Header="MAAS" Binding="{Binding Maas }" Width="100"/>
-                 <DataGridTemplateColumn Header="" IsReadOnly="True" Width="36">
-                    <DataGridTemplateColumn.CellTemplate>
-                        <DataTemplate>
-                            <Button Style="{StaticResource simplebutton}" Content="Sil" Name="sil_button" Click="Eleman_sil" />
-                        </DataTemplate>
-                    </DataGridTemplateColumn.CellTemplate>
-                </DataGridTemplateColumn>
-                <DataGridTemplateColumn Header="" IsReadOnly="True" Width="74">
-                    <DataGridTemplateColumn.CellTemplate>
-                        <DataTemplate>
-                            <Button Style="{StaticResource simplebutton}" Content="Düzenle" Name="duzenle_button" Click="Eleman_Duzenle" />
-                        </DataTemplate>
-                    </DataGridTemplateColumn.CellTemplate>
-                </DataGridTemplateColumn>
-            </DataGrid.Columns>
+                <DataGrid x:Name="dataGrid" VerticalScrollBarVisibility="Disabled" HorizontalScrollBarVisibility="Disabled" HorizontalAlignment="Left" Margin="0,0,0,0" AutoGenerateColumns="False" VerticalAlignment="Top" Height="284" Width="1300" FontSize="13.333" >
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="TC NO" Binding="{Binding TCNo }" Width="200"/>
+                        <DataGridTextColumn Header="AD" Binding="{Binding Adi }" Width="192"/>
+                        <DataGridTextColumn Header="SOYAD" Binding="{Binding Soyadi }" Width="200"/>
+                        <DataGridTextColumn Header="ADRES" Binding="{Binding Adres }" Width="270" />
+                        <DataGridTextColumn Header="TELEFON" Binding="{Binding Tel }" Width="150"/>
+                        <DataGridTextColumn Header="MAAS" Binding="{Binding Maas }" Width="100"/>
+                        <DataGridTemplateColumn Header="" IsReadOnly="True" Width="80">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Button  Content="Sil" Name="sil_button" Click="Eleman_sil" />
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                        <DataGridTemplateColumn Header="" IsReadOnly="True" Width="110">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Button  Content="Düzenle" Name="duzenle_button" Click="Eleman_Duzenle" />
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                    </DataGrid.Columns>
                     <DataGrid.RowDetailsTemplate>
                         <DataTemplate>
                             <DockPanel Background="GhostWhite">
@@ -49,54 +53,47 @@
                                         <RowDefinition Height="Auto" />
                                         <RowDefinition Height="Auto" />
                                     </Grid.RowDefinitions>
-                                    <TextBlock Text="Adı : " FontWeight="Bold" />
-                                    <TextBlock Text="{Binding Adi}" Grid.Column="1" />
-                                    <TextBlock Text="Soyadı : " FontWeight="Bold" Grid.Row="1" />
-                                    <TextBlock Text="{Binding Soyadi}" Grid.Column="1" Grid.Row="1" />
-                                    <TextBlock Text="Kayıt Tarihi : " FontWeight="Bold" Grid.Row="2" />
-                                    <TextBlock Text="{Binding KayitTarihi, StringFormat={}{0:dd/MM/yyyy}}"  Grid.Column="1" Grid.Row="2"/>
+                                    <TextBlock Text="Adı : " FontWeight="Bold"/>
+                                    <TextBlock Text="{Binding Adi}" Grid.Column="1" FontWeight="Bold"/>
+                                    <TextBlock Text="Soyadı : " Grid.Row="1" FontWeight="Bold"/>
+                                    <TextBlock Text="{Binding Soyadi}" Grid.Column="1" Grid.Row="1" FontWeight="Bold"/>
+                                    <TextBlock Text="Kayıt Tarihi : " Grid.Row="2" FontWeight="Bold"/>
+                                    <TextBlock Text="{Binding KayitTarihi, StringFormat={}{0:dd/MM/yyyy}}" FontWeight="Bold" Grid.Column="1" Grid.Row="2"/>
 
                                 </Grid>
                             </DockPanel>
                         </DataTemplate>
-                        
+
                     </DataGrid.RowDetailsTemplate>
-        </DataGrid>
+                </DataGrid>
             </StackPanel>
         </ScrollViewer>
-      
+
 
         <Label x:Name="label" Content="Toplam Verilen Maaş            :" HorizontalAlignment="Left" Margin="10,339,0,0" VerticalAlignment="Top"/>
         <Label x:Name="gider" Content="" HorizontalAlignment="Left" Margin="182,341,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-        <Button x:Name="Verileriyoket" Content="Eleman Verilerini Temizle" HorizontalAlignment="Left" Margin="1094,9,0,0" VerticalAlignment="Top"  Click="Verileriyoket_Click" Width="186" FontWeight="Bold" FontSize="14.667" Height="46">
-            <Button.Background>
-                <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
-                    <GradientStop Color="Black" Offset="1"/>
-                    <GradientStop Color="#FFEE5D5D"/>
-                </LinearGradientBrush>
-            </Button.Background>
-        </Button>
-        <Button x:Name="yukle" Style="{StaticResource Resimlibuton}" Content=""  HorizontalAlignment="Left" Margin="70,10,0,0" VerticalAlignment="Top"  Click="ListeyiYenile_Click" >
+        <Button x:Name="Verileriyoket" Content="Eleman Verilerini Temizle" HorizontalAlignment="Left" Margin="1055,9,0,0" VerticalAlignment="Top"  Click="Verileriyoket_Click" Width="225" FontWeight="Bold" FontSize="14.667" Height="46"/>
+        <Button x:Name="yukle" Style="{DynamicResource Resimlibuton}" Content=""  HorizontalAlignment="Left" Margin="70,10,0,0" VerticalAlignment="Top"  Click="ListeyiYenile_Click" >
             <Button.Background>
                 <ImageBrush ImageSource="ImageResources/Reflesh.png"/>
             </Button.Background>
         </Button>
-        <Button x:Name="yenieleman"  Style="{StaticResource Resimlibuton}"  Content="" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"  Click="yenieleman_Click">
+        <Button x:Name="yenieleman" Style="{DynamicResource Resimlibuton}" Content="" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"  Click="yenieleman_Click">
             <Button.Background>
                 <ImageBrush ImageSource="ImageResources/Personnel.png"/>
             </Button.Background>
         </Button>
-        <Button x:Name="parapanel"  Style="{StaticResource Resimlibuton}" Content="" ToolTip="Verilen Paralar" HorizontalAlignment="Left" Margin="190,10,0,0" VerticalAlignment="Top"  Click="maaspanel_Click">
+        <Button x:Name="parapanel" Style="{DynamicResource Resimlibuton}" Content="" ToolTip="Verilen Paralar" HorizontalAlignment="Left" Margin="190,10,0,0" VerticalAlignment="Top"  Click="maaspanel_Click">
             <Button.Background>
                 <ImageBrush ImageSource="ImageResources/paralistesi.png"/>
             </Button.Background>
         </Button>
-        <Button x:Name="paraodeme" Style="{StaticResource Resimlibuton}" Content="" ToolTip="Para Ödeme" HorizontalAlignment="Left" Margin="130,10,0,0" VerticalAlignment="Top"   Click="paraodeme_Click">
+        <Button x:Name="paraodeme" Style="{DynamicResource Resimlibuton}" Content="" ToolTip="Para Ödeme" HorizontalAlignment="Left" Margin="130,10,0,0" VerticalAlignment="Top"   Click="paraodeme_Click">
             <Button.Background>
                 <ImageBrush ImageSource="ImageResources/paraver.png"/>
             </Button.Background>
         </Button>
-        <Button x:Name="organization" Style="{StaticResource Resimlibuton}" Content="" ToolTip="Şirket Organizasyonu" HorizontalAlignment="Left" Margin="250,10,0,0" VerticalAlignment="Top" Width="51" Click="organization_Click">
+        <Button x:Name="organization" Style="{DynamicResource Resimlibuton}" Content="" ToolTip="Şirket Organizasyonu" HorizontalAlignment="Left" Margin="250,10,0,0" VerticalAlignment="Top" Width="51" Click="organization_Click">
             <Button.Background>
                 <ImageBrush ImageSource="ImageResources/organization.png" Stretch="Uniform"/>
             </Button.Background>

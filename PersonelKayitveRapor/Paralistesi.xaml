@@ -6,9 +6,11 @@
         xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
         xmlns:xcdg="http://schemas.xceed.com/wpf/xaml/datagrid"
         xmlns:local="clr-namespace:PersonelKayitveRapor"
+        Background="{DynamicResource MaterialDesignPaper}"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
         mc:Ignorable="d"
         Icon="ImageResources\logo.ico"
-        Title="Verilen Para Listesi" Height="485.1" Width="643" Background="#FFCCE4AE" ResizeMode="NoResize" >
+        Title="Verilen Para Listesi" Height="485.1" Width="643" ResizeMode="NoResize" >
 
     <Grid>
         <ComboBox x:Name="comboBox" HorizontalAlignment="Left" Margin="10,16,0,0" VerticalAlignment="Top" Width="120" Height="22">
@@ -17,28 +19,21 @@
         </ComboBox>
         <DatePicker Name="ilktarih" HorizontalAlignment="Left" Margin="10,59,0,0" VerticalAlignment="Top" Height="24" Width="102" />
         <DatePicker Name="sontarih" HorizontalAlignment="Left" Margin="134,59,0,0" VerticalAlignment="Top" Height="24" Width="102"/>
-        <Button x:Name="ParaVerileriniSil" Content="Para Verilerini Sil" HorizontalAlignment="Left" Margin="441,10,0,0" VerticalAlignment="Top" Width="150" Height="35" FontWeight="Bold" Click="ParaVerileriniSil_Click"  >
-            <Button.Background>
-                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                    <GradientStop Color="Black" Offset="0"/>
-                    <GradientStop Color="Red" Offset="1"/>
-                </LinearGradientBrush>
-            </Button.Background>
-        </Button>
-        <Button  x:Name="filtrele" Style="{StaticResource simplebutton}" Content="Filtrele" HorizontalAlignment="Left" Margin="160,10,0,0" VerticalAlignment="Top" Width="115" Height="35" Click="filtrele_Click" >
+        <Button x:Name="ParaVerileriniSil" Content="Para Verilerini Sil" HorizontalAlignment="Left" Margin="453,10,0,0" VerticalAlignment="Top" Width="150" Height="35" FontWeight="Bold" Click="ParaVerileriniSil_Click"/>
+            <Button  x:Name="filtrele" Content="Filtrele" HorizontalAlignment="Left" Margin="160,10,0,0" VerticalAlignment="Top" Width="115" Height="35" Click="filtrele_Click" >
         </Button>
         <ScrollViewer HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Disabled" Margin="0,101,10,52">
             <StackPanel>
-            <DataGrid x:Name="ParaGrid" VerticalScrollBarVisibility="Disabled" HorizontalScrollBarVisibility="Disabled" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top" Height="286" Width="600" AutoGenerateColumns="False" Background="#FFCCE4AE">
+            <DataGrid x:Name="ParaGrid" VerticalScrollBarVisibility="Disabled" HorizontalScrollBarVisibility="Disabled" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top" Height="286" Width="600" AutoGenerateColumns="False">
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="AD SOYAD" Binding="{Binding verilenAdiSoyadi }" Width="224"/>
                     <DataGridTextColumn Header="TARİH" Binding="{Binding verilenTarih, StringFormat={}{0:dd/MM/yyyy}}"  Width="120"/>
                     <DataGridTextColumn Header="ZAMAN" Binding="{Binding verilenZaman ,StringFormat=HH:mm}"  Width="70"/>
-                    <DataGridTextColumn x:Name="PARACOL" Header="PARA" Binding="{Binding para}" Width="140"/>
-                    <DataGridTemplateColumn Header="" IsReadOnly="True" Width="37">
+                    <DataGridTextColumn x:Name="PARACOL" Header="PARA" Binding="{Binding para}" Width="100"/>
+                    <DataGridTemplateColumn Header="" IsReadOnly="True" Width="80">
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
-                                <Button Content="Sil" Style="{StaticResource simplebutton}" Name="sil_button" Click="Eleman_sil" />
+                                <Button Content="Sil" Name="sil_button" Click="Eleman_sil" />
                             </DataTemplate>
                         </DataGridTemplateColumn.CellTemplate>
                     </DataGridTemplateColumn>
@@ -47,7 +42,7 @@
             </StackPanel>
         </ScrollViewer>
       
-        <Button x:Name="sifirla" Style="{StaticResource simplebutton}"   Content="Hepsini Göster" HorizontalAlignment="Left" Margin="291,10,0,0" VerticalAlignment="Top" Width="112" Click="sifirla_Click" Height="35"/>
+        <Button x:Name="sifirla"  Content="Hepsini Göster" HorizontalAlignment="Left" Margin="291,10,0,0" VerticalAlignment="Top" Width="112" Click="sifirla_Click" Height="35"/>
         <Label x:Name="labelpara" Content="Toplam Verilen Para       :" HorizontalAlignment="Left" Margin="10,404,0,0" VerticalAlignment="Top" Height="27" Width="141"/>
         <Label x:Name="toplamverilenpara" Content="" HorizontalAlignment="Left" Margin="160,404,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
     </Grid>

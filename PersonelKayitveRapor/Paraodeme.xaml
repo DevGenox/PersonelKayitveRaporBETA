@@ -5,18 +5,21 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:sys="clr-namespace:System;assembly=mscorlib"
         xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
+        xmlns:wpf="clr-namespace:MaterialDesignThemes.Wpf;assembly=MaterialDesignThemes.Wpf"
         xmlns:local="clr-namespace:PersonelKayitveRapor"
+        Background="{DynamicResource MaterialDesignPaper}"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
         mc:Ignorable="d"
         Icon="ImageResources\logo.ico"
-        Title="Para Ödeme" Height="238" Width="300" Background="#FFCCE4AE" ResizeMode="NoResize">
+        Title="Para Ödeme" Height="238" Width="300" ResizeMode="NoResize">
     <Grid>
         <TextBox x:Name="verilenpara" HorizontalAlignment="Left" Height="23" Margin="148,65,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="131"/>
         <ComboBox x:Name="elemansecP" HorizontalAlignment="Left" Margin="5,66,0,0" VerticalAlignment="Top" Width="138"/>
-        <Button Style="{StaticResource simplebutton}" x:Name="ver" Content="Ver" HorizontalAlignment="Left" Margin="110,162,0,0" VerticalAlignment="Top" Width="75" Click="ver_Click"/>
+        <Button x:Name="ver" Content="Ver" HorizontalAlignment="Left" Margin="110,162,0,0" VerticalAlignment="Top" Width="75" Click="ver_Click"/>
         <Label x:Name="label" Content="Verilecek Olan Personel" HorizontalAlignment="Left" Margin="5,26,0,0" VerticalAlignment="Top" Width="138" Background="#FFEAC729"/>
         <Label x:Name="label1" Content="Verilecek Olan Miktar " HorizontalAlignment="Left" Margin="150,26,0,0" VerticalAlignment="Top" Width="131" Background="#FFEAC729"/>
-        <DatePicker Name="Costomverilenzaman" HorizontalAlignment="Left" Margin="27,133,0,0" VerticalAlignment="Top"/>
-        <xctk:TimePicker Name="saat" Margin="159,133,47,47"/>
+        <DatePicker Name="Costomverilenzaman" HorizontalAlignment="Left" Margin="19,132,0,0" VerticalAlignment="Top" Width="102"/>
+        <wpf:TimePicker x:Name="saat" VerticalAlignment="Top" Margin="148,132,21,0" />
         <Label x:Name="label2" Content="İsteğe Göre Tarih" HorizontalAlignment="Left" Margin="92,102,0,0" VerticalAlignment="Top" Width="114" Background="#FFEAC729"/>
 
     </Grid>

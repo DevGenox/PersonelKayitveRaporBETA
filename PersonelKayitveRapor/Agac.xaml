@@ -3,6 +3,8 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:v="clr-namespace:PersonelKayitveRapor.View" 
         xmlns:local="clr-namespace:PersonelKayitveRapor"
+        Background="{DynamicResource MaterialDesignPaper}"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
         Title="Şirket Organizasyonu" Width="850" Height="600" ResizeMode="NoResize" Icon="ImageResources\logo.ico">
     <Window.Resources>
         <DataTemplate x:Key="NoTemplate">
