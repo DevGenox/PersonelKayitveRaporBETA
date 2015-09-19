@@ -24,6 +24,7 @@ namespace PersonelKayitveRapor
         bool listelendi = false;
         public Elemanlistesi()
         {
+            msc.DropTables();
             var process = Process.GetProcessesByName("mongod").FirstOrDefault();
             try
             {

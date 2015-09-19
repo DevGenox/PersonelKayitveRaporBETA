@@ -31,9 +31,9 @@ namespace PersonelKayitveRapor.Model
 
         internal static OrgChartManager Instance()
         {
-            if (self == null)
+           
                 self = new OrgChartManager();
-            return self;
+                return self;
         }
 
         //get the root

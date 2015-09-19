@@ -34,8 +34,7 @@ namespace PersonelKayitveRapor.ViewModel
 
         public static OrgTreeViewModel Instance()
         {
-            if(self ==null)
-                self = new OrgTreeViewModel();
+            self = new OrgTreeViewModel();
             return self;
         }
 

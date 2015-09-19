@@ -11,7 +11,7 @@
         Icon="ImageResources\logo.ico"
         Title="Eleman Bilgilerini Düzenle" Height="669.799" Width="557.328" ResizeMode="NoResize">
     <Grid>
-        <Button x:Name="kaydet" Content="" ToolTip="Elemanı Ekle" HorizontalAlignment="Left" Height="46" Margin="449,585,0,0" VerticalAlignment="Top" Width="79" Click="Kaydet_Click" FontSize="20" FontWeight="Bold" RenderTransformOrigin="-0.154,0.5">
+        <Button x:Name="kaydet" Style="{DynamicResource Resimlibuton}" Content="" ToolTip="Elemanı Ekle" HorizontalAlignment="Left" Height="46" Margin="449,585,0,0" VerticalAlignment="Top" Width="79" Click="Kaydet_Click" FontSize="20" FontWeight="Bold" RenderTransformOrigin="-0.154,0.5">
             <Button.Background>
                 <ImageBrush ImageSource="ImageResources/edit.png" Stretch="Uniform"/>
             </Button.Background>
@@ -43,9 +43,9 @@
         <Canvas Height="125" Width="124" Margin="10,10,417,506">
             <Image x:Name="profilresim" Height="105" Width="104" Canvas.ZIndex="1" Canvas.Left="10" Canvas.Top="10" MouseDown="profilresim_MouseDown"  Cursor="Hand" />
             <Rectangle Stroke="Black" StrokeThickness="5"
-           Fill="Orange"  Height="125" Width="124"/>
+           Fill="#FFC200"  Height="125" Width="124"/>
         </Canvas>
-        <Button x:Name="iptal" Content="" HorizontalAlignment="Left" Margin="353,585,0,0" VerticalAlignment="Top" Width="79" Height="46" Click="iptal_Click_1">
+        <Button x:Name="iptal" Style="{DynamicResource Resimlibuton}" Content="" HorizontalAlignment="Left" Margin="353,585,0,0" VerticalAlignment="Top" Width="79" Height="46" Click="iptal_Click_1">
             <Button.Background>
                 <ImageBrush ImageSource="ImageResources/cancel.png" Stretch="Uniform"/>
             </Button.Background>

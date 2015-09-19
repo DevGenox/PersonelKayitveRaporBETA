@@ -53,7 +53,7 @@
         <Canvas Height="125" Width="124" Margin="393,10,34,511" Cursor="Hand" MouseDown="profilresim_MouseDown">
             <Image x:Name="profilresim" Height="105" Width="104"  Canvas.ZIndex="1" Canvas.Left="10" Canvas.Top="10"  />
             <Rectangle Stroke="Black" StrokeThickness="5"
-           Fill="Orange"  Height="125" Width="124"/>
+           Fill="#FFC200"  Height="125" Width="124"/>
         </Canvas>
         
 

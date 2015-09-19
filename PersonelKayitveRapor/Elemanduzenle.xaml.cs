@@ -173,15 +173,14 @@ namespace PersonelKayitveRapor
                         byte[] imageArray = File.ReadAllBytes(browsefilename);
                         eleman.Resim = imageArray;
                     }
-                    
-                    eleman.Adi = txAdi.Text;
-                    eleman.Soyadi = txSoy.Text;
-                    eleman.Cinsiyet = cboxCinsiyet.Text;
-                    eleman.Tel = txTel.Text;
-                    eleman.Adres = txAdres.Text;
-                    eleman.TCNo = txTC.Text;
-                    eleman.Maas = Convert.ToDouble(txMaas.Text);
-                    eleman.pozisyon = cboxGorev.Text;
+                    msc.Insancol.Update(Query.EQ("_id", eleman._idkisi), Update.Set("Adi", txAdi.Text), UpdateFlags.Multi);
+                    msc.Insancol.Update(Query.EQ("_id", eleman._idkisi), Update.Set("Soyadi", txSoy.Text), UpdateFlags.Multi);
+                    msc.Insancol.Update(Query.EQ("_id", eleman._idkisi), Update.Set("Cinsiyet", cboxCinsiyet.Text), UpdateFlags.Multi);
+                    msc.Insancol.Update(Query.EQ("_id", eleman._idkisi), Update.Set("Tel", txTel.Text), UpdateFlags.Multi);
+                    msc.Insancol.Update(Query.EQ("_id", eleman._idkisi), Update.Set("Adres", txAdres.Text), UpdateFlags.Multi);
+                    msc.Insancol.Update(Query.EQ("_id", eleman._idkisi), Update.Set("TCNo", txTC.Text), UpdateFlags.Multi);
+                    msc.Insancol.Update(Query.EQ("_id", eleman._idkisi), Update.Set("Maas", Convert.ToDouble(txMaas.Text)), UpdateFlags.Multi);
+                    msc.Insancol.Update(Query.EQ("_id", eleman._idkisi), Update.Set("pozisyon", cboxGorev.Text), UpdateFlags.Multi);
                     switch (cboxGorev.Text)
                     {
                         case "Müdür":
@@ -195,7 +194,7 @@ namespace PersonelKayitveRapor
                                     kul.treeId = listesira;
                                     if (kul.Adi + " " + kul.Soyadi == cboxUstKademe.Text)
                                     {
-                                        eleman.ParentId = kul.treeId;
+                                        msc.Insancol.Update(Query.EQ("_id", eleman._idkisi), Update.Set("ParentId", kul.treeId), UpdateFlags.Multi);
                                         break;
                                     }
                                 }
@@ -215,7 +214,7 @@ namespace PersonelKayitveRapor
                                     kul.treeId = listesira;
                                     if (kul.Adi + " " + kul.Soyadi == cboxUstKademe.Text)
                                     {
-                                        eleman.ParentId = kul.treeId;
+                                        msc.Insancol.Update(Query.EQ("_id", eleman._idkisi), Update.Set("ParentId", kul.treeId), UpdateFlags.Multi);
                                         break;
                                     }
                                 }
@@ -232,7 +231,7 @@ namespace PersonelKayitveRapor
                                     kul.treeId = listesira;
                                     if (kul.Adi + " " + kul.Soyadi == cboxUstKademe.Text)
                                     {
-                                        eleman.ParentId = kul.treeId;
+                                        msc.Insancol.Update(Query.EQ("_id", eleman._idkisi), Update.Set("ParentId", kul.treeId), UpdateFlags.Multi);
                                         break;
                                     }
                                 }
@@ -249,14 +248,25 @@ namespace PersonelKayitveRapor
                                     kul.treeId = listesira;
                                     if (kul.Adi + " " + kul.Soyadi == cboxUstKademe.Text)
                                     {
-                                        eleman.ParentId = kul.treeId;
+                                        msc.Insancol.Update(Query.EQ("_id", eleman._idkisi), Update.Set("ParentId", kul.treeId), UpdateFlags.Multi);
                                         break;
                                     }
                                 }
                             }                            
                             break;
                     }
-                    msc.Insancol.Update(Query.EQ("_id", eleman._idkisi), Update.Replace(eleman), UpdateFlags.Upsert);
+
+
+
+                    //msc.Olgu.Update(Query.EQ("_id", new ObjectId(txSurecAdi.Tag.ToString())), Update.Set("Adi.D", txSurecAsilAdi.Text), UpdateFlags.Multi);
+
+                    //msc.Olgu.Update(Query.EQ("_id", new ObjectId(txSurecAdi.Tag.ToString())), Update.Set("Tanimi.D", txSurecTanimi.Text), UpdateFlags.Multi);
+                    //msc.Olgu.Update(Query.EQ("_id", new ObjectId(txSurecAdi.Tag.ToString())), Update.Set("Aciklama.D", txSurecAciklamalar.Text), UpdateFlags.Multi);
+                    ////  collectionOlgu.Update(Query.EQ("_id", txSurecAdi.Tag.ToString().Replace("\"", "")), Update.Set("Sekli", Convert.ToInt32(cbSurecTipi.SelectedIndex)), UpdateFlags.Multi); 
+
+                    //msc.Olgu.Update(Query.EQ("_id", new ObjectId(txSurecAdi.Tag.ToString())), Update.Set("Tip", Convert.ToInt32(cbSurecTipi.SelectedIndex)), UpdateFlags.Multi);
+
+
                     txAdi.Text = "";
                     txSoy.Text = "";
                     txTel.Text = "";

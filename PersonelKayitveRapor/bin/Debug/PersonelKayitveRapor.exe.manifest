@@ -115,14 +115,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="PersonelKayitveRapor.exe" size="339904">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="PersonelKayitveRapor.exe" size="340416">
       <assemblyIdentity name="PersonelKayitveRapor" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>09Gqj08FmbxJ/mzfFM90lZ69o1D1SMaUoQoNS/ZMa78=</dsig:DigestValue>
+        <dsig:DigestValue>U7NhKTe56+2842kSPco7MhV6yKFw6xtLsx8jhm90PZA=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
