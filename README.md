@@ -1,16 +1,16 @@
 # Personel Kayit Ve Rapor BETA
 
 
-##Credits:
+## Credits:
 
 
-####Main Developer:
+#### Main Developer:
 
 
 Fatih ASLANCAN
 
 
-####Consultant:
+#### Consultant:
 
 
 Metin APAYDIN
@@ -21,4 +21,4 @@ Mehmet APAYDIN
 
 
 
-####Copyright © GENOX Software Engineering -- All Rights Reserved.
+#### Copyright Â© GENOX Software Engineering -- All Rights Reserved.
