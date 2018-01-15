@@ -75,20 +75,7 @@ namespace PersonelKayitveRapor
             Insancol.CreateIndex(new IndexKeysBuilder().Ascending("Sira"), options);
             Paracol.CreateIndex(new IndexKeysBuilder().Ascending("ParaSira"), options);
 
-            //     msc.Sayfa.CreateIndex(new IndexKeysBuilder().Text("BiList.Met"), options);
-
-            //db.Activity.ensureIndex(
-            //               {
-            //                 Title: "text",
-            //                 Description: "text",
-            //                 AlsoKnownAs: "text",
-            //                 Keywords: "text"
-            //               },
-            //               {
-            //                 name: "ActivityFullTextIndex"
-            //               }
-            //             )
-
+        
         }
         public static string AyarYukle()
         {
@@ -102,10 +89,7 @@ namespace PersonelKayitveRapor
                     {
                         var str = line.Split('|');
                         connectionString = str[0].ToString();
-                        //  var connectionString = "mongodb://user1:password1@localhost/test";
-                        //   connectionString = "mongodb://ahmet:1234@localhost/SiyerPro";
-
-
+                   
                     }
                 }
             }
@@ -197,43 +181,7 @@ namespace PersonelKayitveRapor
     public static class YardimciAraclar
     {
 
-        //public static Run LoadStringTo(RichTextBox rtb, string tx)
-        //{
-
-        //    if (tx == "") return null;
-
-        //    TextRange textRange = new TextRange(rtb.Document.ContentStart, rtb.Document.ContentEnd);
-
-        //    MemoryStream ms = new MemoryStream(Encoding.Default.GetBytes(tx));
-
-        //    textRange.Load(ms, DataFormats.Rtf);
-
-        //    FlowDocument fd = rtb.Document;
-
-        //    System.Windows.Documents.Paragraph pr = fd.Blocks.First() as  System.Windows.Documents.Paragraph;
-
-
-
-        //    return null;
-        //}
-
-
-
-
-        //public static ComboBoxItem FindComboItem(ComboBox combo, string text)
-        //{
-        //    ComboBoxItem cit = new ComboBoxItem();
-
-        //    foreach (var vit in combo.Items)
-        //    {
-        //       ComboBoxItem c = (ComboBoxItem)vit;
-        //        if (vit.ToString() == text)
-        //            cit = c;
-        //   }
-
-        //    return cit;
-
-        //}
+      
         public static DataTable DataGridtoDataTable(DataGrid dg)
         {
 
