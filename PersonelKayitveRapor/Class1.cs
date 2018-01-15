@@ -36,19 +36,19 @@ namespace PersonelKayitveRapor
 
     public class msc
     {
-        //string liste içinde liste örnegi var olgular = msc.Olgu.AsQueryable<OlguClass>().ToArray().Where(p => p.IfaList.Any(x => alintilart.Contains(x.ToString())));
+       
         public static string connectionString = AyarYukle();
         public static MongoClient client = new MongoClient(connectionString);
         public static MongoServer server = client.GetServer();
         public static MongoDatabase db = server.GetDatabase("SiyerPro");
-        // public static MongoDatabase db = (Debugger.IsAttached) ? server.GetDatabase("SiyerPro_debug") : server.GetDatabase("SiyerPro"); 
+       
         public static MongoCollection Insancol = db.GetCollection<InsanClass>(typeof(InsanClass).Name);
         public static MongoCollection Paracol = db.GetCollection<VerilenPara>(typeof(VerilenPara).Name);
 
         public static void RepairDatabase()
         {
             db.RunCommand(new CommandDocument("repairDatabase", 1));
-            // db.RunCommand("repairDatabase");
+           
         }
 
 
@@ -196,7 +196,7 @@ namespace PersonelKayitveRapor
             Fields = Lines[0].Split(new char[] { ',' });
             int Cols = Fields.GetLength(0);
             DataTable dt = new DataTable();
-            //1st row must be column names; force lower case to ensure matching later on.
+          
             for (int i = 0; i < Cols; i++)
                 dt.Columns.Add(Fields[i].ToUpper(), typeof(string));
             DataRow Row;
@@ -225,22 +225,7 @@ namespace PersonelKayitveRapor
             else
                 return int.TryParse(withoutWhiteSpace, out i);
         }
-        public static string HarekesizMetin(string harekeliMetin)
-        {
-            if (harekeliMetin == "" || harekeliMetin == null) return "";
-            string sontext = "";
-            var ch = harekeliMetin.Take(harekeliMetin.Length);
-            foreach (var c in ch)
-            {
-                if (c != 'آ' && c != 'ً' && c != 'ٌ' && c != 'ٍ' && c != 'َ' && c != 'ُ' && c != 'ِ' && c != 'ّ' && c != 'ْ')
-                {
-                    sontext += c;
-                }
-
-            }
-
-            return sontext;
-        }
+     
       
         public static byte[] LoadImageData(string filePath)
         {
